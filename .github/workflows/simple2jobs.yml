@@ -1,4 +1,4 @@
-name: Shell Commands Python
+name: Shell Commands
 
 on: [push]
 
@@ -6,19 +6,22 @@ jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     steps:
+      # Tjekker koden ud fra dit repository
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Udskriver en simpel besked
       - name: Echo a string
         run: echo "Hej med dig"
 
+      # Kører flere shell-kommandoer
       - name: Multi line script
         run: |
           node -v
           npm -v
-          mvn - v
+          mvn -v
+
+      # Kører et Python script
       - name: Python command
         run: |
-          import platform
-          print (platform.processor())
-          shell: python
-          
-          
-
+          python3 -c "import platform; print(platform.processor())"
