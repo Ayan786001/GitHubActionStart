@@ -1,0 +1,24 @@
+name: Shell Commands Python
+
+on: [push]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a string
+        run: echo "Hej med dig"
+
+      - name: Multi line script
+        run: |
+          node -v
+          npm -v
+          mvn - v
+      - name: Python command
+        run: |
+          import platform
+          print (platform.processor())
+          shell: python
+          
+          
+
